@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+
+.__________cytoscape_container canvas{
+  left: 0;
+  top: 0;
+}
