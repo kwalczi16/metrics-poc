@@ -1,18 +1,23 @@
 import React from "react";
 import "./App.css";
-import { Cytoscape } from "./components/Cytoscape.component";
 import { VisNetwork } from "./components/VisNetwork.component";
 import { DataProvider } from "./context/Data.context";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Nav } from "./components/Nav.component";
+import { ChartPage } from "./pages/ChartPage";
 
 function App() {
 	return (
 		<div className="App">
-			<DataProvider>
-				<div>visjs</div>
-				<VisNetwork />
-				<div>cytoscape</div>
-				<Cytoscape />
-			</DataProvider>
+			<Router>
+				<DataProvider>
+					<Nav />
+					<Switch>
+						<Route exact path="/topology" component={VisNetwork} />
+						<Route exact path="/metrics" component={ChartPage} />
+					</Switch>
+				</DataProvider>
+			</Router>
 		</div>
 	);
 }

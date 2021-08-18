@@ -37,8 +37,21 @@
   }
 }
 
+nav {
+  padding: 16px;
+  text-align:left;
+}
+
+nav > a {
+  margin-left: 24px; 
+}
+
 
 .__________cytoscape_container canvas{
   left: 0;
   top: 0;
+}
+
+svg {
+  overflow: visible;
 }

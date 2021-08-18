@@ -1,0 +1,326 @@
+[
+  {
+    "namespace": "cert-manager",
+    "name": "cert-manager"
+  },
+  {
+    "namespace": "ambassador",
+    "name": "ambassador"
+  },
+  {
+    "namespace": "cortex",
+    "name": "cortex-ingester"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "gke-aiops-central-stage-primary"
+  },
+  {
+    "namespace": "monitoring",
+    "name": "emporix-prometheus-server"
+  },
+  {
+    "namespace": "cert-manager",
+    "name": "letsencrypt-certificate"
+  },
+  {
+    "namespace": "reporting",
+    "name": "incidents-service"
+  },
+  {
+    "namespace": "ingestion",
+    "name": "drain-service-master"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "node-local-dns"
+  },
+  {
+    "namespace": "default",
+    "name": "client"
+  },
+  {
+    "namespace": "ingress-nginx",
+    "name": "nginx-nginx-ingress"
+  },
+  {
+    "namespace": "logs",
+    "name": "loki-distributed-querier"
+  },
+  {
+    "namespace": "reporting",
+    "name": "topology-service-cleanup-job"
+  },
+  {
+    "namespace": "logs",
+    "name": "logstash-promtail"
+  },
+  {
+    "namespace": "monitoring",
+    "name": "grafana"
+  },
+  {
+    "namespace": "linkerd",
+    "name": "linkerd-proxy-injector"
+  },
+  {
+    "namespace": "ml",
+    "name": "traffic-prediction-endpoint-prediction"
+  },
+  {
+    "namespace": "logs",
+    "name": "loki-distributed-table-manager"
+  },
+  {
+    "namespace": "ingestion",
+    "name": "log-compressor"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "gke-metadata-server"
+  },
+  {
+    "namespace": "cortex",
+    "name": "cortex-store-gateway"
+  },
+  {
+    "namespace": "monitoring",
+    "name": "prom-kube-state-metrics"
+  },
+  {
+    "namespace": "default",
+    "name": "nginx-ingress-nginx-admission-patch"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "default-backend"
+  },
+  {
+    "namespace": "linkerd",
+    "name": "linkerd-heartbeat"
+  },
+  {
+    "namespace": "logs",
+    "name": "loki-distributed-ingester"
+  },
+  {
+    "namespace": "default",
+    "name": "nginx-ingress-nginx-admission-create"
+  },
+  {
+    "namespace": "cortex",
+    "name": "cortex-querier"
+  },
+  {
+    "namespace": "monitoring",
+    "name": "prom-kube-prometheus-operator"
+  },
+  {
+    "namespace": "consul",
+    "name": "consul-consul"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "metrics-server"
+  },
+  {
+    "namespace": "default",
+    "name": "frontend"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "kube-dns"
+  },
+  {
+    "namespace": "reporting",
+    "name": "topology-service-update-job"
+  },
+  {
+    "namespace": "default",
+    "name": "httpbin"
+  },
+  {
+    "namespace": "argo",
+    "name": "workflow-controller"
+  },
+  {
+    "namespace": "logs",
+    "name": "loki-distributed-distributor"
+  },
+  {
+    "namespace": "test",
+    "name": "grafana-test"
+  },
+  {
+    "namespace": "consul",
+    "name": "consul-consul-sync-catalog"
+  },
+  {
+    "namespace": "argo",
+    "name": "argo-server"
+  },
+  {
+    "namespace": "ambassador",
+    "name": "kratos"
+  },
+  {
+    "namespace": "reporting",
+    "name": "metrics-service"
+  },
+  {
+    "namespace": "logs",
+    "name": "loki-distributed-gateway"
+  },
+  {
+    "namespace": "reporting",
+    "name": "topology-registry"
+  },
+  {
+    "namespace": "ingestion",
+    "name": "drain-service"
+  },
+  {
+    "namespace": "monitoring",
+    "name": "alertmanager-prom-kube-prometheus-alertmanager"
+  },
+  {
+    "namespace": "monitoring",
+    "name": "prom-node-exporter"
+  },
+  {
+    "namespace": "cortex",
+    "name": "cortex-nginx",
+    "connections": [
+      {
+        "dstServiceName": "cortex-querier",
+        "dstNamespace": "cortex"
+      }
+    ]
+  },
+  {
+    "namespace": "kube-system",
+    "name": "gke-metrics-agent"
+  },
+  {
+    "namespace": "default",
+    "name": "ingress-nginx-nginx-ingress"
+  },
+  {
+    "namespace": "default",
+    "name": "nginx-ingress-nginx-controller"
+  },
+  {
+    "namespace": "linkerd",
+    "name": "linkerd-controller"
+  },
+  {
+    "namespace": "default",
+    "name": "cortex-load-test-cortex-benchtool"
+  },
+  {
+    "namespace": "monitoring",
+    "name": "prometheus-prom-kube-prometheus-prometheus"
+  },
+  {
+    "namespace": "linkerd",
+    "name": "linkerd-identity"
+  },
+  {
+    "namespace": "cert-manager",
+    "name": "cert-manager-webhook"
+  },
+  {
+    "namespace": "cortex",
+    "name": "cortex-compactor",
+    "connections": [
+      {
+        "dstServiceName": "cortex-query-frontend",
+        "dstNamespace": "cortex"
+      },
+      {
+        "dstServiceName": "cortex-distributor",
+        "dstNamespace": "cortex"
+      }
+    ]
+  },
+  {
+    "namespace": "kube-system",
+    "name": "kube-dns-autoscaler"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "netd"
+  },
+  {
+    "namespace": "logs",
+    "name": "loki-distributed-compactor"
+  },
+  {
+    "namespace": "argo",
+    "name": "argo-ui"
+  },
+  {
+    "namespace": "cortex",
+    "name": "cortex-query-frontend"
+  },
+  {
+    "namespace": "linkerd",
+    "name": "linkerd-destination"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "gke-aiops-central-stage-primary-zflh"
+  },
+  {
+    "namespace": "linkerd",
+    "name": "linkerd-sp-validator"
+  },
+  {
+    "namespace": "reporting",
+    "name": "topology-service"
+  },
+  {
+    "namespace": "cert-manager",
+    "name": "cert-manager-cainjector"
+  },
+  {
+    "namespace": "ambassador",
+    "name": "hydra"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "descheduler"
+  },
+  {
+    "namespace": "logs",
+    "name": "loki-distributed-query-frontend"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "eventrouter"
+  },
+  {
+    "namespace": "argo",
+    "name": "header-test"
+  },
+  {
+    "namespace": "consul",
+    "name": "consul-consul-server"
+  },
+  {
+    "namespace": "reporting",
+    "name": "logs-service"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "pdcsi-node"
+  },
+  {
+    "namespace": "cortex",
+    "name": "cortex-distributor"
+  },
+  {
+    "namespace": "kube-system",
+    "name": "gke-aiops-central-stage-primary-zflt"
+  }
+]

@@ -22,12 +22,14 @@ export const VisNetwork: React.FC = () => {
 				return "connections" in node;
 			})
 			.map((node: any) => {
-				console.log(node);
 				return [node["connections"], node["name"]];
 			})
-			.map((args: any) => {
+			.flatMap((args: any) => {
 				const [connections, nodeName] = args;
-				return { from: nodeName, to: connections[0].dstServiceName };
+				return connections.map((connection: any) => ({
+					from: nodeName,
+					to: connection.dstServiceName,
+				}));
 			});
 	}, [topology]);
 
