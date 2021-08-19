@@ -1,75 +1,76 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
 import { DataContext } from "../context/Data.context";
 
-export interface Coords {
-	x: any;
-	y: any;
-	interpolate: string;
-}
-
 export const D3js: React.FC = () => {
-	const { metrics } = useContext(DataContext);
-	// const [data, setData] = useState<object[]>([
-	// 	{ date: 16098767894, value: 240 },
-	// ]);
+	// const { metrics } = useContext(DataContext);
+	// const [data, setData] = useState<object[]>([]);
 
-	// const setMetrics = () => {
-	// 	// setData([]);
+	// const setMetrics: any = () => {
+	// 	setData([]);
 	// 	const valuesArray = Object.values(metrics.values);
-	// 	valuesArray.map((item: any) => {
+	// 	return valuesArray.map((item: object) => {
 	// 		for (const [key, value] of Object.entries(item)) {
-	// 			return setData((prev) => [...prev, { date: key, value }]);
+	// 			return setData((prev) => [
+	// 				...prev,
+	// 				{ date: parseInt(key), value: parseInt(value) },
+	// 			]);
 	// 		}
 	// 	});
 	// };
 
 	const svgRef = useRef<SVGSVGElement | any>();
 
-	const [data, setData] = useState<number[]>([25, 3, 18, 45, 60, 20]);
+	const [data, setData] = useState<object[]>([
+		{ date: 100, value: 240 },
+		{ date: 101, value: 208 },
+		{ date: 102, value: 219 },
+		{ date: 103, value: 171 },
+		{ date: 104, value: 200 },
+		{ date: 105, value: 222 },
+	]);
 
 	useEffect(() => {
-		console.log(svgRef);
+		// setMetrics();
+		console.log(data.map((d: any) => d.date));
 
 		const svg = d3.select(svgRef.current);
 
 		const xScale = d3
 			.scaleLinear()
-			.domain([0, data.length - 1])
+			.domain([
+				d3.min(data.map((d: any) => d.date)),
+				d3.max(data.map((d: any) => d.date)),
+			])
 			.range([0, 300]);
 
-		const yScale = d3.scaleLinear().domain([0, 75]).range([150, 0]);
+		const yScale = d3.scaleLinear().domain([0, 280]).range([150, 0]);
 
 		const xAxis: any = d3
 			.axisBottom(xScale)
 			.ticks(data.length)
-			.tickFormat((index: any) => index + 1);
+			.tickFormat((index: any) => index);
 		svg.select(".x-axis").style("transform", "translateY(150px)").call(xAxis);
 
 		const yAxis: any = d3.axisRight(yScale);
 		svg.select(".y-axis").style("transform", "translateX(300px)").call(yAxis);
 
-		// xAxis(svg.select(".x-axis"));
+		console.log(data.map((d: any) => xScale(d.name)));
 
-		const myLine = d3
-			.line<number>()
-			.x((value, index) => xScale(index))
-			.y(yScale)
+		const line = d3
+			.line<any>()
+			.x((d, index) => (300 / (data.length - 1)) * index)
+			.y((d: any) => yScale(d.value))
 			.curve(d3.curveCardinal);
-		// svg
-		// 	.selectAll("circle")
-		// 	.data(data)
-		// 	.join("circle")
-		// 	.attr("r", (value) => value)
-		// 	.attr("cx", (value) => value * 2)
-		// 	.attr("cy", (value) => value * 2)
-		// 	.attr("stroke", "red");
+
+		console.log(yScale);
+
 		svg
 			.selectAll(".line")
 			.data([data])
 			.join("path")
 			.attr("class", "line")
-			.attr("d", myLine)
+			.attr("d", line)
 			.attr("fill", "none")
 			.attr("stroke", "blue");
 	}, [data]);
