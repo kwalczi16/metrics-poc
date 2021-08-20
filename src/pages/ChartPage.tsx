@@ -8,8 +8,12 @@ export const ChartPage: React.FC = () => {
 		<div>
 			<h3>Recharts</h3>
 			<Recharts />
+			<br />
+			<br />
 			<h3>D3JS</h3>
 			<D3js />
+			<br />
+			<br />
 			<h3>Chart.js (React)</h3>
 			<Chartjs />
 		</div>
