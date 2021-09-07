@@ -109,7 +109,13 @@
   },
   {
     "namespace": "cortex",
-    "name": "cortex-querier"
+    "name": "cortex-querier",
+    "connections": [
+      {
+        "dstServiceName": "cortex-query-frontend",
+        "dstNamespace": "cortex"
+      }
+    ]
   },
   {
     "namespace": "monitoring",
@@ -193,6 +199,18 @@
     "connections": [
       {
         "dstServiceName": "cortex-querier",
+        "dstNamespace": "cortex"
+      },
+      {
+        "dstServiceName": "cortex-ingester",
+        "dstNamespace": "cortex"
+      },
+      {
+        "dstServiceName": "cortex-store-gateway",
+        "dstNamespace": "cortex"
+      },
+      {
+        "dstServiceName": "cortex-compactor",
         "dstNamespace": "cortex"
       }
     ]

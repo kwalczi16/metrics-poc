@@ -39,7 +39,8 @@ export const DataProvider: FC = ({ children }) => {
 	};
 
 	useEffect(() => {
-		getTopology("cortex");
+		// getTopology("cortex");
+		getTopology();
 		getMetrics();
 	}, []);
 
